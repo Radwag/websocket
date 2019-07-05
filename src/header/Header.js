@@ -9,12 +9,12 @@ class Header extends Component {
     render () {
       return (
         <header className="Header">
-            <form onSubmit={this.props.chooseWeight} className="ipForm">
+            <form onSubmit={this.props.chooseScales} className="ipForm">
                 <input type="text" placeholder="Type ip:" name="ip" autoComplete="off"></input>
             </form>
             <Button
                 class={'open'}
-                chooseWeight={this.props.chooseWeight}
+                chooseScales={this.props.chooseScales}
                 stateButton={this.props.stateButton}
                 changeStateButton={this.props.changeStateButton}
             />

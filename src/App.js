@@ -18,7 +18,7 @@ class App extends Component {
         all:false
     }
 
-    chooseWeight = (e) => {
+    chooseScales = (e) => {
         e.preventDefault()
         let target = document.querySelector('.ipForm')
         const values = serializeForm(target, {hash: true })
@@ -179,7 +179,7 @@ class App extends Component {
                 weights={this.state.weights}
                 data={this.state.data}
                 showWeight={this.showWeight}
-                chooseWeight={this.chooseWeight}
+                chooseScales={this.chooseScales}
                 stateButton={this.state.stateButton}
                 changeStateButton={this.changeStateButton}
                 showAll={this.showAll}
