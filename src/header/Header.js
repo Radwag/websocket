@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Weight from '../weight/Weights'
+import AllScales from '../scales/AllScales'
 import Button from '../button/Buttons'
 
-import '../weight/Weight.scss'
+import '../scales/AllScales.scss'
 import '../button/Button.scss'
 
 class Header extends Component {
@@ -20,7 +20,7 @@ class Header extends Component {
             />
             
             {this.props.data&&this.props.allScales.length>0&&
-            <Weight
+            <AllScales
                 allScales={this.props.allScales}
                 showScales={this.props.showScales}
                 showAll={this.props.showAll}

@@ -12,7 +12,7 @@ class Details extends Component {
                         {!this.props.all&&<div className="myProgress">
                             <div className="myBar"></div>
                         </div>}
-                        <p className='weightValue'>
+                        <p className='scales-value'>
                             {this.props.allScales[this.props.platformIndex].NetAct.Value!=='nie jest liczbą'?
                             <span>{this.props.precision(this.props.allScales[this.props.platformIndex].NetAct.Value, 3)} kg</span>:<span>- - -</span>
                             }

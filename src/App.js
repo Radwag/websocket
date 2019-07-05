@@ -39,9 +39,6 @@ class App extends Component {
             connection.onopen = () => {
                 var msg = {COMMAND: "GET_MOD_INFO"};
                 connection.send(JSON.stringify(msg));
-
-                
-                
             }
 
             connection.onmessage = (e) => {
@@ -54,6 +51,7 @@ class App extends Component {
 
             connection.onerror = (e) => {
                 this.changeStateButton()
+                console.log('ERROR')
             }
             target.firstChild.disabled =true
             connection.onclose = () => {
@@ -99,7 +97,7 @@ class App extends Component {
                 
                 myBar.style.width = 0
             }
-            let allScales = document.querySelectorAll('.weight')
+            let allScales = document.querySelectorAll('.scales')
             if (allScales.length > 0) {
                 this.changeColor(allScales, platformIndex)
             } 
@@ -159,7 +157,7 @@ class App extends Component {
         this.state.connection.send(JSON.stringify(msg));
     }
 
-    // Display all weights
+    // Display all scales
     showAll = () => {
         if (!this.state.all) {
             this.setState({all:true})
@@ -199,10 +197,10 @@ class App extends Component {
             {this.state.data&&this.state.all&&
             <div className="all">
                 <ol>
-                    {this.state.allScales.map(weight => 
-                    <li key={weight.PlatformIndex} className="test">
+                    {this.state.allScales.map(scales => 
+                    <li key={scales.PlatformIndex} className="test">
                         <Details
-                            platformIndex={weight.PlatformIndex}
+                            platformIndex={scales.PlatformIndex}
                             allScales={this.state.allScales}
                             data={this.state.data}
                             setTare={this.setTare}

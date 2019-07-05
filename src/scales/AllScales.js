@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import allIcon from '../img/all-icon.png';
 import oneIcon from '../img/one-icon.png'
 
-class Weights extends Component {
+class AllScales extends Component {
     render() {
         const {allScales} = this.props;
         return (
-            <div className="weights">
+            <div className="all-scales">
                 <ol>
                     {allScales.map(scale => 
-                        <li key={scale.PlatformIndex} className="weight" onClick={() => this.props.showScales(scale.PlatformIndex)}>
+                        <li key={scale.PlatformIndex} className="scales" onClick={() => this.props.showScales(scale.PlatformIndex)}>
                             <p>{scale.PlatformIndex +1}</p>
                         </li>
                     )}
@@ -20,4 +20,4 @@ class Weights extends Component {
     }
 }
 
-export default Weights
+export default AllScales
