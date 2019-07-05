@@ -9,7 +9,7 @@ class Weights extends Component {
             <div className="weights">
                 <ol>
                     {weights.map(scale => 
-                        <li key={scale.PlatformIndex} className="weight" onClick={() => this.props.showWeight(scale.PlatformIndex)}>
+                        <li key={scale.PlatformIndex} className="weight" onClick={() => this.props.showScales(scale.PlatformIndex)}>
                             <p>{scale.PlatformIndex +1}</p>
                         </li>
                     )}

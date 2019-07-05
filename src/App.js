@@ -59,7 +59,7 @@ class App extends Component {
                 this.setState({data:false})
             }
             
-            this.showWeight(0)
+            this.showScales(0)
 
             let allWeights = document.querySelectorAll('.weight')
             if (allWeights.length > 0) {
@@ -68,7 +68,7 @@ class App extends Component {
         }
     }
 
-    showWeight = (platformIndex) => {
+    showScales = (platformIndex) => {
         if(this.state.interval) {
             clearInterval(this.state.interval)
         }
@@ -178,7 +178,7 @@ class App extends Component {
             <Header
                 weights={this.state.weights}
                 data={this.state.data}
-                showWeight={this.showWeight}
+                showScales={this.showScales}
                 chooseScales={this.chooseScales}
                 stateButton={this.state.stateButton}
                 changeStateButton={this.changeStateButton}

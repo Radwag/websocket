@@ -22,7 +22,7 @@ class Header extends Component {
             {this.props.data&&this.props.weights.length>0&&
             <Weight
                 weights={this.props.weights}
-                showWeight={this.props.showWeight}
+                showScales={this.props.showScales}
                 showAll={this.props.showAll}
                 all={this.props.all}
             />}
