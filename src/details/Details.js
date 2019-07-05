@@ -20,7 +20,7 @@ class Details extends Component {
 
                         <hr/>
                         <p >
-                            Tare: {this.props.weights[this.props.platformIndex].Tare}
+                            Tare: {this.props.precision(this.props.weights[this.props.platformIndex].Tare, 3)}
                         </p>
                         <hr/>
                         <p >
@@ -44,7 +44,6 @@ class Details extends Component {
                                 Set zero
                             </div>
                         </div>
-                        <hr/>
                     </div>}
                 </div>
             </div>
