@@ -1,0 +1,74 @@
+.details {
+    margin-left: auto;
+    margin-right: auto;
+    transition-duration: 4s;
+    border: 1px solid gray;
+    margin-top: 10px;
+    width: 50%;
+    list-style-type: none;
+    
+    p {
+        text-align: left;
+        margin-left: 5%;
+        img {
+            top: 5px;
+            position: relative;
+            left: 10px;
+        }
+    }
+
+    .weightValue {
+        text-align: center;
+        font-size: 6em;
+        margin: 0
+    };
+
+    hr {
+        width: 95%;
+    };
+
+    .setButton {
+        width: 150px;
+        height: 35px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        position: relative;
+        left: 10%;
+        display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+        justify-content: center;
+        align-items: center;
+        transition-duration: .4s;
+        &:hover {
+            cursor: pointer;
+            background-color: #80a5e9
+        }
+    }
+    .option {
+        display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+        justify-content: left;
+        align-items: center;
+    }
+}
+.all {
+    width: 100%
+}
+.details1 {
+    height: 85vh;
+    width: 100%;
+    background-color: #ddd;
+    
+}
+.myProgress {
+    width: 70%;
+    background-color: #ddd;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px
+}
+
+.myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #1474e0;
+  }

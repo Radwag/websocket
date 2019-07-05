@@ -1,0 +1,35 @@
+
+.weights {
+    ol {
+        margin:0;
+        display: inline-flex
+    }
+    p {
+        margin: 0
+    }
+    img {
+        width: 45px;
+        height: 45px;
+        top: 4px;
+        left: 15px;
+        position: relative; 
+        transition-duration: .4s;
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 0 10px aliceblue
+        }
+    }
+}
+
+.weight {
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid #fff;
+    margin: 5px;
+    border-radius: 5px;
+    transition-duration: .4s;
+    &:hover {
+        cursor: pointer;
+        background-color: #0f57a8
+    }
+}
