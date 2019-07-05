@@ -9,7 +9,7 @@ import './details/Details.scss'
 
 class App extends Component {
     state = {
-        weights: [],
+        allScales: [],
         data: false,
         platformIndex: 0,
         connection: {},
@@ -39,15 +39,16 @@ class App extends Component {
             connection.onopen = () => {
                 var msg = {COMMAND: "GET_MOD_INFO"};
                 connection.send(JSON.stringify(msg));
+
+                
                 
             }
 
             connection.onmessage = (e) => {
                 let data = e.data;
-                const weights = JSON.parse(data) ;
-                if (weights.Data.Mass) {
-                    this.setState({weights:weights.Data.Mass, data:true});
-
+                const allScales = JSON.parse(data) ;
+                if (allScales.Data.Mass) {
+                    this.setState({allScales:allScales.Data.Mass, data:true});
                 }
             }
 
@@ -56,14 +57,14 @@ class App extends Component {
             }
             target.firstChild.disabled =true
             connection.onclose = () => {
-                this.setState({data:false})
+                this.setState({data:false, allScales: [], connection: {}, platformIndex: 0})
             }
             
             this.showScales(0)
 
-            let allWeights = document.querySelectorAll('.weight')
-            if (allWeights.length > 0) {
-                this.changeColor(allWeights, 0)
+            let allScales = document.querySelectorAll('.weight')
+            if (allScales.length > 0) {
+                this.changeColor(allScales, 0)
             } 
         }
     }
@@ -86,21 +87,21 @@ class App extends Component {
         const interval = setInterval(() => {
             const myBar = document.querySelector('.myBar');
             let width = 0;
-            if(this.state.weights[platformIndex] && this.state.connection.readyState === 1) {
+            if(this.state.allScales[platformIndex] && this.state.connection.readyState === 1) {
                 this.setState({data:true})
-                width = (this.state.weights[platformIndex].Max ) * parseFloat(this.state.weights[platformIndex].NetAct.Value.replace(',','.'));
+                width = (this.state.allScales[platformIndex].Max ) * parseFloat(this.state.allScales[platformIndex].NetAct.Value.replace(',','.'));
                 let msg = {COMMAND: "GET_MOD_INFO"};
                 this.state.connection.send(JSON.stringify(msg));
             }
-            if(myBar && this.state.weights[platformIndex].NetAct.Value !== 'nie jest liczbą') {
+            if(myBar && this.state.allScales[platformIndex].NetAct.Value !== 'nie jest liczbą') {
                 myBar.style.width = width  * 11.2 + '%'
             } else if (myBar) {
                 
                 myBar.style.width = 0
             }
-            let allWeights = document.querySelectorAll('.weight')
-            if (allWeights.length > 0) {
-                this.changeColor(allWeights, platformIndex)
+            let allScales = document.querySelectorAll('.weight')
+            if (allScales.length > 0) {
+                this.changeColor(allScales, platformIndex)
             } 
             
         },250)
@@ -176,7 +177,7 @@ class App extends Component {
         return (
         <div className="App">
             <Header
-                weights={this.state.weights}
+                allScales={this.state.allScales}
                 data={this.state.data}
                 showScales={this.showScales}
                 chooseScales={this.chooseScales}
@@ -188,7 +189,7 @@ class App extends Component {
             
             {this.state.data&&!this.state.all&&<Details
                 platformIndex={this.state.platformIndex}
-                weights={this.state.weights}
+                allScales={this.state.allScales}
                 data={this.state.data}
                 setTare={this.setTare}
                 setZero={this.setZero}
@@ -198,11 +199,11 @@ class App extends Component {
             {this.state.data&&this.state.all&&
             <div className="all">
                 <ol>
-                    {this.state.weights.map(weight => 
+                    {this.state.allScales.map(weight => 
                     <li key={weight.PlatformIndex} className="test">
                         <Details
                             platformIndex={weight.PlatformIndex}
-                            weights={this.state.weights}
+                            allScales={this.state.allScales}
                             data={this.state.data}
                             setTare={this.setTare}
                             setZero={this.setZero}

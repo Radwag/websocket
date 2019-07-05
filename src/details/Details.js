@@ -13,23 +13,23 @@ class Details extends Component {
                             <div className="myBar"></div>
                         </div>}
                         <p className='weightValue'>
-                            {this.props.weights[this.props.platformIndex].NetAct.Value!=='nie jest liczbą'?
-                            <span>{this.props.precision(this.props.weights[this.props.platformIndex].NetAct.Value, 3)} kg</span>:<span>- - -</span>
+                            {this.props.allScales[this.props.platformIndex].NetAct.Value!=='nie jest liczbą'?
+                            <span>{this.props.precision(this.props.allScales[this.props.platformIndex].NetAct.Value, 3)} kg</span>:<span>- - -</span>
                             }
                         </p>
 
                         <hr/>
                         <p >
-                            Tare: {this.props.precision(this.props.weights[this.props.platformIndex].Tare, 3)}
+                            Tare: {this.props.precision(this.props.allScales[this.props.platformIndex].Tare, 3)}
                         </p>
                         <hr/>
                         <p >
-                            Stab: {this.props.weights[this.props.platformIndex].isStab?<img src={check} alt="check" width="24px"/>:<img src={redXicon} alt="redIcon" width="24px"/>}
+                            Stab: {this.props.allScales[this.props.platformIndex].isStab?<img src={check} alt="check" width="24px"/>:<img src={redXicon} alt="redIcon" width="24px"/>}
                         </p>
                         <hr/>
                         <div className="option">
                             <p >
-                                Tare: {this.props.weights[this.props.platformIndex].isTare?<img src={check} alt="check" width="24px"/>:<img src={redXicon} alt="redIcon" width="24px"/>} 
+                                Tare: {this.props.allScales[this.props.platformIndex].isTare?<img src={check} alt="check" width="24px"/>:<img src={redXicon} alt="redIcon" width="24px"/>} 
                             </p>
                             <div className="setButton" onClick={() => this.props.setTare(this.props.platformIndex)}>
                                 Set tare
@@ -38,7 +38,7 @@ class Details extends Component {
                         <hr/>
                         <div className="option">
                             <p >
-                                Zero: {this.props.weights[this.props.platformIndex].isZero?<img src={check} alt="check" width="24px"/>:<img src={redXicon} alt="redIcon" width="24px"/>}
+                                Zero: {this.props.allScales[this.props.platformIndex].isZero?<img src={check} alt="check" width="24px"/>:<img src={redXicon} alt="redIcon" width="24px"/>}
                             </p>
                             <div className="setButton" onClick={() => this.props.setZero(this.props.platformIndex)}>
                                 Set zero

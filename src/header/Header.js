@@ -19,9 +19,9 @@ class Header extends Component {
                 changeStateButton={this.props.changeStateButton}
             />
             
-            {this.props.data&&this.props.weights.length>0&&
+            {this.props.data&&this.props.allScales.length>0&&
             <Weight
-                weights={this.props.weights}
+                allScales={this.props.allScales}
                 showScales={this.props.showScales}
                 showAll={this.props.showAll}
                 all={this.props.all}

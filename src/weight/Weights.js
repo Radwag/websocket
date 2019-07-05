@@ -4,11 +4,11 @@ import oneIcon from '../img/one-icon.png'
 
 class Weights extends Component {
     render() {
-        const {weights} = this.props;
+        const {allScales} = this.props;
         return (
             <div className="weights">
                 <ol>
-                    {weights.map(scale => 
+                    {allScales.map(scale => 
                         <li key={scale.PlatformIndex} className="weight" onClick={() => this.props.showScales(scale.PlatformIndex)}>
                             <p>{scale.PlatformIndex +1}</p>
                         </li>
