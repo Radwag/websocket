@@ -23,6 +23,7 @@ class App extends Component {
         let target = document.querySelector('.ipForm')
         const values = serializeForm(target, {hash: true })
     
+        // checking an ip address
         const regIp = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
         let ipCheck = regIp.test(values.ip)
         
@@ -77,11 +78,10 @@ class App extends Component {
                 COMMAND: "EXECUTE_ACTION",
                 PARAM: `actSelPlatf${platformIndex + 1}`
             };
-
             this.state.connection.send(JSON.stringify(msg));
         }
         
-
+        // setting an interval time for reading scale's value
         const interval = setInterval(() => {
             const myBar = document.querySelector('.myBar');
             let width = 0;
@@ -157,7 +157,7 @@ class App extends Component {
         this.state.connection.send(JSON.stringify(msg));
     }
 
-    // Display all scales
+    // Displaying all scales
     showAll = () => {
         if (!this.state.all) {
             this.setState({all:true})
